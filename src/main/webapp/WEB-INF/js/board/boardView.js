@@ -17,11 +17,6 @@ $(document).ready(function() {
         $textBox.focus(); // 입력란 포커스 유지
     });
 
-    // 좋아요 버튼 클릭 시 토글
-    $('#likeIcon').on('click', function() {
-        $(this).toggleClass('active');
-    });
-
     // 댓글 수 업데이트 함수
     function updateCommentCount(count) {
         $('#comment-num').text('댓글 ' + count + '개');
@@ -30,22 +25,28 @@ $(document).ready(function() {
     $('#likeIcon').on('click', function() {
         const seqBoard = $('#data').data('seq-board');
         const seqMember = $('#seq_member').val(); // seq_member 가져오기
-        const isActive = $(this).hasClass('active');
-        
+        const isActive = $(this).hasClass('active');    
         
         
         $.ajax({
             type: 'POST',
-            url: isActive ? '/Inbeomstagram/board/unlike' : '/Inbeomstagram/board/like',
+            url: '/Inbeomstagram/board/like',
             data: { seq_board: seqBoard, seq_member: seqMember }, 
             success: function(data) {
                 if (data.status === 'success') {
-                    $('#likeIcon').toggleClass('active'); // 좋아요 상태 토글
+                	if(data.liked) {
+                		$('#likeIcon').toggleClass('active'); // 좋아요 상태 토글
+                	}
+                	else {
+                		$('#likeIcon').removeClass('active'); // 좋아요 비활성화 시 active 클래스 제거
+                	}
                     $('#likeCount').text(data.likeCount); // 좋아요 수 업데이트
                 } else {
                     alert(data.message); // 실패 메시지 표시
-                }
-            },
+                } 
+            }.bind(this)
+            ,
+
             error: function() {
                 alert('좋아요 처리 중 오류가 발생했습니다.');
             }
@@ -321,12 +322,18 @@ function onLoadpage() {
         success: function(data) {
         	console.log('loadLikes'+data);
             if (data.status === "success") {
-                $('#likeIcon').toggleClass('active', data.liked); // 좋아요 상태에 따라 토글
+            	if(data.liked) {
+            		$('#likeIcon').toggleClass('active'); // 좋아요 상태에 따라 토글
+            	}else {
+            		$('#likeIcon').remove('active'); // 좋아요 상태에 따라 토글
+            	}                
+
                 $('#likeCount').text(data.likeCount); // 좋아요 수 업데이트
             } else {
                 alert(data.message);
             }
-        },
+        }.bind(this),
+
         error: function() {
             alert('좋아요 정보를 불러오는 데 실패했습니다.');
         }
