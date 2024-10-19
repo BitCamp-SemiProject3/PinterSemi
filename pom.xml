@@ -300,31 +300,22 @@
             </plugin>
             
             <plugin>
-	            <groupId>org.apache.maven.plugins</groupId>
-	            <artifactId>maven-resources-plugin</artifactId>
-	            <version>3.2.0</version>
-	            <executions>
-	                <execution>
-	                    <id>copy-resources</id>
-	                    <phase>process-resources</phase>
-	                    <goals>
-	                        <goal>copy-resources</goal>
-	                    </goals>
-	                    <configuration>
-	                        <outputDirectory>${project.build.directory}/spring</outputDirectory> <!-- 붙여넣을 위치 -->
-	                        <resources>
-	                            <resource>
-	                                <directory>${project.basedir}/spring</directory> <!-- 복사할 파일의 디렉토리 -->
-	                                <includes>
-	                                    <include>*.properties</include>
-	                                    <include>*.xml</include>
-	                                </includes>
-	                            </resource>
-	                        </resources>
-	                    </configuration>
-	                </execution>
-	            </executions>
-	        </plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+            <version>3.3.1</version>
+            <configuration>
+                <webResources>
+                    <resource>
+                        <directory>${project.basedir}</directory> <!-- 프로젝트 루트 디렉토리 -->
+                        <includes>
+                            <include>*.properties</include> <!-- .properties 파일 복사 -->
+                            <include>*.xml</include> <!-- .xml 파일 복사 -->
+                        </includes>
+                        <targetPath>WEB-INF/classes</targetPath> <!-- .war 내부의 위치 -->
+                    </resource>
+                </webResources>
+            </configuration>
+        </plugin>
         </plugins>
     </build>
 </project>
