@@ -30,8 +30,7 @@
 			</section>
 		</c:otherwise>
 	</c:choose>
-	<script type="text/javascript"
-		src="http://code.jquery.com/jquery-3.7.1.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-3.7.1.min.js"></script>
 	<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
 	<script>
 		const contextPath = '${pageContext.request.contextPath}';
