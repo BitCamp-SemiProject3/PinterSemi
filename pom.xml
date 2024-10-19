@@ -298,33 +298,6 @@
                     <mainClass>org.test.int1.Main</mainClass>
                 </configuration>
             </plugin>
-            
-            <plugin>
-			    <groupId>org.apache.maven.plugins</groupId>
-			    <artifactId>maven-resources-plugin</artifactId>
-			    <version>3.2.0</version>
-			    <executions>
-			        <execution>
-			            <id>copy-resources</id>
-			            <phase>process-resources</phase>
-			            <goals>
-			                <goal>copy-resources</goal>
-			            </goals>
-			            <configuration>
-			                <outputDirectory>/PinterSemi/src/main/resources/spring</outputDirectory> <!-- 붙여넣을 위치 -->
-			                <resources>
-			                    <resource>
-			                        <directory>/properties/spring</directory> <!-- 복사할 파일의 실제 디렉토리 -->
-			                        <includes>
-			                            <include>*.properties</include>
-			                            <include>*.xml</include>
-			                        </includes>
-			                    </resource>
-			                </resources>
-			            </configuration>
-			        </execution>
-			    </executions>
-			</plugin>
         </plugins>
     </build>
 </project>
