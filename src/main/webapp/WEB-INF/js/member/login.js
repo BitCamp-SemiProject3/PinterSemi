@@ -5,7 +5,7 @@ function handleLogin(event) {
 
     if($('#loginId').val() == ''){
 		$('#loginIdDiv').html('아이디 입력');
-				document.getElementById("id").focus();
+		document.getElementById("id").focus();
 	}        
     else if($('#loginPassword').val() == ''){
 		$('#loginPwdDiv').html('비밀번호 입력');
@@ -26,7 +26,7 @@ function handleLogin(event) {
                     $('#loginResult').css('font-size', '12pt');
                     $('#loginResult').css('padding', '10px');
                 } else {
-                    location.href = '/Inbeomstagram/';
+                    location.href = '/Inbeomstagram/board/searchPage';
                 }
             },
             error: function(e){

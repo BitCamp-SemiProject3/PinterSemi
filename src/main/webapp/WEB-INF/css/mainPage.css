@@ -142,7 +142,7 @@ p {
 	}
 }
 /*페이지가 600px보다 작을 때*/
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
 	h2 {
 	    font-size: 1.75em; /* 제목 폰트 크기 */
 	    margin-top: 10px; /* 제목 상단 여백 */
@@ -168,6 +168,17 @@ p {
 	    text-align: center; /* 설명 중앙 정렬 */
 	    color: #006b6c;
 	}
+	.item img{
+		margin-top: 30px;
+		width: 100%; /* �씠誘몄� �꼫鍮� 100% */
+		height: auto; /* 鍮꾩쑉 �쑀吏� */
+	 	border-radius: 5px; /* �씠誘몄� 紐⑥꽌由� �뫁湲�寃� */
+	}
+	.item.event1 {
+	    display: block; /* Flexbox �궗�슜 */
+	    align-items: center; /* �꽭濡� 媛��슫�뜲 �젙�젹 */
+	    background-color: #dafff6;
+	}
 }
 /* 슬라이더 */
 .slider {
@@ -188,14 +199,21 @@ p {
     .item {
         flex-direction: column; /* 작은 화면에서는 세로로 나열 */
         width: 100%; /* 너비 100% 설정 */
+        height: 100%;
     }
 
     .event-content,
+    .event-content1,
     .event-description {
         padding-left: 0; /* 작은 화면에서는 패딩 제거 */
         width: auto; /* 너비 자동 조정 */
     }
-
+    
+	.event-content1 {
+		margin: 0 auto;
+		padding: 0;
+	}
+	
     .event-description {
         padding-top: 10px; /* 이미지와 설명 사이 여백 추가 */
     }

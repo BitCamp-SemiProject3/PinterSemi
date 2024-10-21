@@ -36,5 +36,6 @@ public class BoardScrapServiceImpl implements BoardScrapService {
 		}
 		return list;
 	}
+	
 
 }

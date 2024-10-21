@@ -48,8 +48,7 @@ $('.boardUpdateBtn').click(function() {
 			data: formData,
 			success: function() {
 				alert('이미지 등록 완료');
-				location.href = '/Inbeomstagram/';
-
+				location.href = '/Inbeomstagram/board/searchPage';
 			},
 			error: function(e) {
 				console.log(e);

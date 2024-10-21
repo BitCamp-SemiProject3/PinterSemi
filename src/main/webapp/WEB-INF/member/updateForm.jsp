@@ -29,16 +29,16 @@
 				</div>
 				<div class="userprofiledomain">
 					<div class="userprofile" id="userprofile">	
-						<c:if test="${ memDTO.kakaoCheck == 'F' }">
-							<c:if test="${ not empty memDTO.userProfile }">
-								<img src="https://kr.object.ncloudstorage.com/bitcamp-9th-pinter/storage/${ memDTO.userProfile }" alt="${memDTO.userOriginalProfile }" />
-							</c:if>
-						</c:if>
-						<c:if test="${ memDTO.kakaoCheck == 'T' }">
-							<c:if test="${ not empty memDTO.kakaoProfile }">
-								<img src="${ memDTO.kakaoProfile }" alt="카카오 사진" />
-							</c:if>
-						</c:if>
+						<c:choose>
+		                  <c:when test="${memDTO.userProfile != null}">
+		                     <img
+		                        src="https://kr.object.ncloudstorage.com/bitcamp-9th-pinter/storage/${memDTO.userProfile}"
+		                        alt="유저 프로필 이미지">
+		                  </c:when>
+		                  <c:otherwise>
+		                     <img src="${memDTO.kakaoProfile}" alt="유저 카카오 프로필 이미지">
+		                  </c:otherwise>
+		               </c:choose>
 					</div>
 					<div class="profilebutton">
 						<input type="button" id="change" value="변경" />

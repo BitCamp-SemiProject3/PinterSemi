@@ -61,11 +61,10 @@ public class MemberServiceImpl implements MemberService {
 		MemberDTO dto = memberDAO.getMember(memberDTO.getId());
 
 		String userOriginalProfile;
-		String userProfile;
+		String userProfile = dto.getUserProfile();
 		File file;
 
-		if(userProfileImg != null) {
-			userProfile = dto.getUserProfile();
+		if(userProfileImg.getSize() != 0) {
 			//NCP 이미지 삭제
 			objectStorageService.deleteFile(bucketName, "storage/", userProfile);
 			//NCP 이미지 올리기
@@ -80,12 +79,13 @@ public class MemberServiceImpl implements MemberService {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			memberDTO.setUserProfile(userProfile);
-			memberDTO.setUserOriginalProfile(userOriginalProfile);
 		} else { // 업데이트폼에서 이미지를 수정하지 않았을 때
-			memberDTO.setUserProfile(dto.getUserProfile());
-			memberDTO.setUserOriginalProfile(dto.getUserOriginalProfile());
+			userProfile = dto.getUserProfile();
+			userOriginalProfile = dto.getUserOriginalProfile();
 		}
+		memberDTO.setUserProfile(userProfile);
+		memberDTO.setUserOriginalProfile(userOriginalProfile);
+		
 		memberDAO.update(memberDTO);
 	}
 

@@ -8,12 +8,18 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="/Inbeomstagram/css/header.css">
+</head>
 <header>
 	<div class="logo">
-		<a href="${pageContext.request.contextPath}/"> <!-- 홈으로 이동할 수 있는 로고 -->
-			<img alt="home으로 이동" src="/Inbeomstagram/img/logo.png" width="100"
-			height="30">
-		</a>
+		 <c:if test="${memDTO == null}">
+			<a href="${pageContext.request.contextPath}/"> <!-- 홈으로 이동할 수 있는 로고 -->
+		</c:if>
+		<c:if test="${memDTO != null}">
+			<a href="${pageContext.request.contextPath}/board/searchPage"> <!-- 홈으로 이동할 수 있는 로고 -->
+		</c:if>
+				<img alt="home으로 이동" src="/Inbeomstagram/img/logo.png" width="120"
+				height="30">
+			</a>
 	</div>
 
 	<!-- 검색할 수 있는 영역 (로그인 시 노출) -->
@@ -45,11 +51,12 @@
 		</c:if>
 		<c:if test="${not empty sessionScope.memDTO}">
 			<a
-				href="/Inbeomstagram/popularPage/popularPage"
-				class="info">인기 게시글</a>
-			<a href="/Inbeomstagram/member/mypageForm"
+				href="/Inbeomstagram/member/mypageForm"
+				class="info">내가 쓴 게시글</a>
+			<a href="/Inbeomstagram/member/updateForm"
 				class="info">${memDTO.name }님</a>
 			<button onclick="logout()" class="logout">로그아웃</button>
+			<img src="../img/avatardefault_92824.png" onclick="location.href='/Inbeomstagram/member/mypageForm'"/>
 		</c:if>
 	</div>	
 </header>
@@ -65,4 +72,4 @@
 <script type="text/javascript">
 	var seq_member = ${memDTO.seq_member};
 </script>
-<script type="text/javascript" scr="${pageContext.request.contextPath}/js/board/getBoardScrap.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/board/getBoardScrap.js"></script>

@@ -1,6 +1,8 @@
 $(document).ready(function() {
     let currentPage = 1;  // 1페이지는 서버에서 로드됐으므로 2페이지부터 시작
     let loading = false;
+    
+    loadMoreData(0);
 
     // 스크롤 이벤트 감지
     $(window).scroll(function() {
@@ -45,7 +47,7 @@ $(document).ready(function() {
 
             const newItem = `
                 <div class="grid-item">
-                    <a href="/board/boardView?seq_board=${seqBoard}">
+                    <a href="/Inbeomstagram/board/boardView?seq_board=${seqBoard}">
                         <img src="https://kr.object.ncloudstorage.com/bitcamp-9th-pinter/storage/${image}" alt="${imageSubject}" />
                         <span class="hit">${hit}</span>
                     </a>

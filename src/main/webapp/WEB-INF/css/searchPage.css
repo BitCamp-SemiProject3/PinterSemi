@@ -70,19 +70,19 @@ body {
 
 @media (max-width: 1024px) {
     .gallery {
-        grid-template-columns: repeat(3, 1fr); /* 화면 너비가 1024px 이하일 때 3열 */
+        grid-template-columns: repeat(4, 1fr); /* 화면 너비가 1024px 이하일 때 3열 */
     }
 }
 
 @media (max-width: 768px) {
     .gallery {
-        grid-template-columns: repeat(2, 1fr); /* 화면 너비가 768px 이하일 때 2열 */
+        grid-template-columns: repeat(3, 1fr); /* 화면 너비가 1024px 이하일 때 3열 */
     }
 }
 
 @media (max-width: 480px) {
     .gallery {
-        grid-template-columns: 1fr; /* 화면 너비가 480px 이하일 때 1열 */
+        grid-template-columns: repeat(3, 1fr); /* 화면 너비가 1024px 이하일 때 3열 */
     }
 }
 

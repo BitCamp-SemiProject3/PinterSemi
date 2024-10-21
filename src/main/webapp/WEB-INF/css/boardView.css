@@ -8,12 +8,12 @@ body {
 * {
 	box-sizing: border-box;
 }
-#main-content {
-	display:flex;
-	justify-content:center;
-    margin-top: 20px; /* header와의 간격 */
-}
 
+#main-content {
+	display: flex;
+	justify-content: center;
+	margin-top: 20px; /* header와의 간격 */
+}
 
 #container {
 	display: flex;
@@ -46,7 +46,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	gap:50px;
+	gap: 50px;
 }
 
 h2 {
@@ -66,7 +66,6 @@ h4 {
 	color: #888;
 	margin: 5px 0;
 }
-
 
 #comment-num {
 	font-size: 14px;
@@ -92,26 +91,26 @@ h4 {
 }
 
 #memberProfileImage {
-    width: 30px; /* 컨테이너 크기 */
-    height: 30px;
-    border-radius: 50%; /* 둥근 모양 */
-    display: flex;
-    justify-content: center; /* 이미지 가운데 정렬 */
-    align-items: center;
-    margin-right: 10px; /* 입력창과의 간격 */
-    overflow: hidden; /* 둥근 모양 밖으로 이미지가 넘치지 않도록 */
-    margin-bottom:10px;
+	width: 30px; /* 컨테이너 크기 */
+	height: 30px;
+	border-radius: 50%; /* 둥근 모양 */
+	display: flex;
+	justify-content: center; /* 이미지 가운데 정렬 */
+	align-items: center;
+	margin-right: 10px; /* 입력창과의 간격 */
+	overflow: hidden; /* 둥근 모양 밖으로 이미지가 넘치지 않도록 */
+	margin-bottom: 10px;
 }
 
 #memberProfileImage img {
-    width: 100%; /* 컨테이너에 맞추되 비율 유지 */
-    height: 100%; 
-    object-fit: contain; /* 이미지가 잘리지 않도록 함 */
+	width: 100%; /* 컨테이너에 맞추되 비율 유지 */
+	height: 100%;
+	object-fit: cover; /* 이미지가 잘리지 않도록 컨테이너를 채움 */
 }
 
 #commentContent, #edit-comment {
 	padding-left: 12px;
-    padding-top: 6px;
+	padding-top: 6px;
 	width: 100%;
 	height: 40px;
 	border: 1px solid #ddd;
@@ -120,9 +119,10 @@ h4 {
 	margin-bottom: 10px;
 	box-sizing: border-box;
 }
+
 #commentContent {
-    flex-grow: 1; /* 댓글 입력 필드가 가능한 공간을 모두 차지하게 함 */
-    margin-right: 10px; /* 이모지 버튼과의 간격 */
+	flex-grow: 1; /* 댓글 입력 필드가 가능한 공간을 모두 차지하게 함 */
+	margin-right: 10px; /* 이모지 버튼과의 간격 */
 }
 
 #commentBtn:hover {
@@ -130,16 +130,17 @@ h4 {
 }
 
 #pin-buttons {
-    display: flex;
-    justify-content: flex-end; /* 오른쪽 정렬 */
-    align-items: center; /* 수직 중앙 정렬 */
-    position: absolute; /* 절대 위치 설정 */
-    right: 0; /* 오른쪽 끝에 위치하도록 설정 */
-    top: 50%; /* 부모 요소의 중간 위치 */
-    transform: translateY(-50%); /* 세로 방향으로 중앙 정렬 */
+	display: flex;
+	justify-content: flex-end; /* 오른쪽 정렬 */
+	align-items: center; /* 수직 중앙 정렬 */
+	position: absolute; /* 절대 위치 설정 */
+	right: 0; /* 오른쪽 끝에 위치하도록 설정 */
+	top: 50%; /* 부모 요소의 중간 위치 */
+	transform: translateY(-50%); /* 세로 방향으로 중앙 정렬 */
 }
 
 #updateBtn, #deleteBtn, #scrapBtn {
+<<<<<<< HEAD
     padding: 8px 12px; /* 버튼 크기 조정 */
     background-color: #E60023; /* 버튼 색상 변경 */
     color: white;
@@ -157,130 +158,154 @@ h4 {
 
 #updateBtn:focus, #deleteBtn:focus, #scrapBtn:hover {
     outline: none; /* 포커스 시 테두리 없애기 */
+=======
+	padding: 8px 12px; /* 버튼 크기 조정 */
+	background-color: #E60023; /* 버튼 색상 변경 */
+	color: white;
+	border: none;
+	border-radius: 20px;
+	cursor: pointer;
+	margin-left: 12px; /* 버튼 간 간격 증가 */
+	font-size: 14px; /* 글자 크기 증가 */
+	transition: background-color 0.3s; /* 배경색 변화 애니메이션 */
+}
+
+#updateBtn:hover, #deleteBtn:hover, #scrapBtn:hover {
+	background-color: #c7001b; /* 마우스 오버 시 색상 변경 */
+}
+
+#updateBtn:focus, #deleteBtn:focus, #scrapBtn:focus {
+	outline: none; /* 포커스 시 테두리 없애기 */
+>>>>>>> c8bed214f6b9d6cc679853e08999b2bc15033b20
 }
 
 #deleteBtn {
-    background-color: #E60023; /* 삭제 버튼 색상 동일하게 설정 */
+	background-color: #E60023; /* 삭제 버튼 색상 동일하게 설정 */
 }
 
 #deleteBtn:hover {
-    background-color: #c7001b; /* 삭제 버튼 마우스 오버 시 색상 변경 */
+	background-color: #c7001b; /* 삭제 버튼 마우스 오버 시 색상 변경 */
 }
-
 
 #comment-input {
 	padding-right: 10px;
 }
 
 .back {
-    position: fixed;
-    width: 50px;
-    height: 50px;
-    font-size: 24px;
-    cursor: pointer;
-    top: 110px;
-    left: 30px;
-    display: flex; /* 이미지와 버튼을 정렬 */
-    align-items: center; /* 수직 중앙 정렬 */
-    justify-content: center; /* 수평 중앙 정렬 */
+	position: fixed;
+	width: 50px;
+	height: 50px;
+	font-size: 24px;
+	cursor: pointer;
+	top: 110px;
+	left: 30px;
+	display: flex; /* 이미지와 버튼을 정렬 */
+	align-items: center; /* 수직 중앙 정렬 */
+	justify-content: center; /* 수평 중앙 정렬 */
 }
 
-
 #backBtn {
-    border: none;
-    border-radius: 50%;
-    display: flex;
-    align-items: center; /* 수직 중앙 정렬 */
-    justify-content: center; /* 수평 중앙 정렬 */
-    background-color: white; /* 기본 흰색 배경 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
-    transition: all 0.3s ease; /* 모든 전환을 부드럽게 처리 */
-    width: 80px; /* 버튼 크기 설정 */
-    height: 50px; /* 버튼 크기 설정 */
-    cursor: pointer; /* 마우스 커서를 포인터로 변경 */
+	border: none;
+	border-radius: 50%;
+	display: flex;
+	align-items: center; /* 수직 중앙 정렬 */
+	justify-content: center; /* 수평 중앙 정렬 */
+	background-color: white; /* 기본 흰색 배경 */
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
+	transition: all 0.3s ease; /* 모든 전환을 부드럽게 처리 */
+	width: 80px; /* 버튼 크기 설정 */
+	height: 50px; /* 버튼 크기 설정 */
+	cursor: pointer; /* 마우스 커서를 포인터로 변경 */
 }
 
 #backBtn:hover {
-    background-color: rgba(211, 211, 211, 0.5); /* hover 시 옅은 회색 배경 */
-    transform: scale(1.1); /* hover 시 약간 커지도록 */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* hover 시 그림자 진하게 */
+	background-color: rgba(211, 211, 211, 0.5); /* hover 시 옅은 회색 배경 */
+	transform: scale(1.1); /* hover 시 약간 커지도록 */
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* hover 시 그림자 진하게 */
 }
 
 .back img {
-    width: 70%; /* 버튼 내부 이미지 크기 조정 */
-    height: auto; /* 비율 유지 */
-    transition: transform 0.3s ease; /* 이미지도 부드럽게 전환 */
+	width: 70%; /* 버튼 내부 이미지 크기 조정 */
+	height: auto; /* 비율 유지 */
+	transition: transform 0.3s ease; /* 이미지도 부드럽게 전환 */
 }
 
 #info {
 	position: relative;
-    display: flex;
-    align-items: center; /* 수직 중앙 정렬 */
-    gap: 10px; /* 요소들 간의 간격 */
+	display: flex;
+	align-items: center; /* 수직 중앙 정렬 */
+	gap: 10px; /* 요소들 간의 간격 */
 }
 
 #likeIcon {
-    width: 30px;
-    height: 30px;
-    font-size: 24px; /* 아이콘 크기 */
-    color: #999; /* 기본 색상 (회색) */
-    transition: all 0.3s ease; /* 전환 애니메이션 */
+	width: 30px;
+	height: 30px;
+	font-size: 24px; /* 아이콘 크기 */
+	color: #999; /* 기본 색상 (회색) */
+	transition: all 0.3s ease; /* 전환 애니메이션 */
 }
 
 #scarpBtn:hover #likeIcon {
-    color: #ff6666; /* hover 시 밝은 빨간색으로 변경 */
-    transform: scale(1.2); /* hover 시 아이콘 약간 커짐 */
+	color: #ff6666; /* hover 시 밝은 빨간색으로 변경 */
+	transform: scale(1.2); /* hover 시 아이콘 약간 커짐 */
 }
 
 #likeIcon.active {
-    fill: red; /* 활성화된 상태의 색상 */
-    transform: scale(1.3); /* 눌렀을 때 아이콘이 더 커짐 */
-    animation: bounce 0.3s ease; /* 클릭 시 바운스 애니메이션 */
+	fill: red; /* 활성화된 상태의 색상 */
+	transform: scale(1.3); /* 눌렀을 때 아이콘이 더 커짐 */
+	animation: bounce 0.3s ease; /* 클릭 시 바운스 애니메이션 */
 }
 
-@keyframes bounce {
-    0%, 100% {
-        transform: scale(1.3);
-    }
-    50% {
-        transform: scale(1.5);
-    }
+@
+keyframes bounce { 0%, 100% {
+	transform: scale(1.3);
 }
-#hitRate{
-	margin-left:20px;
-	margin-right:10px;
+
+50
+%
+{
+transform
+:
+scale(
+1.5
+);
 }
+}
+#hitRate {
+	margin-left: 20px;
+	margin-right: 10px;
+}
+
 #hitIcon {
-    width: 30px;
-    height: 30px;
-    color: #999; /* 기본 색상 (회색) */
+	width: 30px;
+	height: 30px;
+	color: #999; /* 기본 색상 (회색) */
 }
 
 #share {
-    display: flex; /* Use flexbox for alignment */
-    align-items: center; /* Center items vertically */
-    justify-content: center; /* Center items horizontally */
-    margin: 10px; /* Add margin for spacing */
+	display: flex; /* Use flexbox for alignment */
+	align-items: center; /* Center items vertically */
+	justify-content: center; /* Center items horizontally */
+	margin: 10px; /* Add margin for spacing */
 }
 
 #shareBtn {
-    background-color: #ffffff; /* Set background to white */
-    border: none; /* Remove default border */
-    border-radius: 50%; /* Make it circular */
-    cursor: pointer; /* Change cursor to pointer */
-    padding: 10px; /* Add padding for better size */
-    transition: background-color 0.3s ease; /* Add transition effect */
+	background-color: #ffffff; /* Set background to white */
+	border: none; /* Remove default border */
+	border-radius: 50%; /* Make it circular */
+	cursor: pointer; /* Change cursor to pointer */
+	padding: 10px; /* Add padding for better size */
+	transition: background-color 0.3s ease; /* Add transition effect */
 }
 
 #shareBtn:hover {
-    background-color: #f0f0f0; /* Light gray shade on hover */
+	background-color: #f0f0f0; /* Light gray shade on hover */
 }
 
 #share img {
-    width: 20px; /* Set a fixed size for the image */
-    height: auto; /* Maintain aspect ratio */
+	width: 20px; /* Set a fixed size for the image */
+	height: auto; /* Maintain aspect ratio */
 }
-
 
 strong {
 	font-size: 14pt;
@@ -311,6 +336,7 @@ strong {
 	padding-bottom: 5px;
 	margin-bottom: 5px;
 }
+
 #edit-btn, #save-edit-btn {
 	background-color: transparent; /* 배경색 투명 */
 	border: none; /* 테두리 제거 */
@@ -350,6 +376,7 @@ strong {
 	color: #c7001b; /* 호버 시 글자 색상 변경 */
 	font-weight: bold; /* 호버 시 글자를 굵게 표시 */
 }
+
 #comment-list {
 	max-height: 300px;
 	overflow-y: auto;
@@ -360,6 +387,20 @@ strong {
 	overflow: hidden;
 	position: relative;
 	margin-bottom: 10px;
+}
+
+.comment-content.parent {
+	font-weight: bold; /* 부모 댓글을 더 강조 */
+}
+
+.comment-content.reply {
+	margin-left: 30px; /* 대댓글을 부모 댓글보다 들여쓰기 */
+	font-size: 0.9em; /* 대댓글은 부모 댓글보다 작게 */
+	color: #555; /* 대댓글의 색상을 연하게 */
+}
+
+.reply-list {
+	margin-top: 10px; /* 대댓글 목록 상단 여백 */
 }
 
 .comment-full {
@@ -379,7 +420,6 @@ strong {
 	position: relative;
 	border: none;
 	margin-bottom: 13px;
-	
 }
 
 #commentBtn {
@@ -392,29 +432,92 @@ strong {
 	cursor: pointer;
 }
 
-
 #commentBtn img {
 	width: 20px;
 	height: 20px;
 }
 
 #userName {
-    display: flex;
-    align-items: center; /* 이미지와 이름을 수직 중앙 정렬 */
-    gap: 15px; /* 이미지와 이름 사이의 간격 */
+	display: flex;
+	align-items: center; /* 이미지와 이름을 수직 중앙 정렬 */
+	gap: 15px; /* 이미지와 이름 사이의 간격 */
 }
 
 #userName img {
-    width: 20px; /* 프로필 이미지의 크기 */
-    height: 20px; /* 동일한 높이 설정 */
-    border-radius: 50%; /* 이미지의 모서리를 둥글게 처리해 원형으로 */
-    object-fit: cover; /* 이미지 비율을 유지하면서 잘림 */
+	width: 20px; /* 프로필 이미지의 크기 */
+	height: 20px; /* 동일한 높이 설정 */
+	border-radius: 50%; /* 이미지의 모서리를 둥글게 처리해 원형으로 */
+	object-fit: cover; /* 이미지 비율을 유지하면서 잘림 */
 }
 
 #userName h4 {
-    margin: 0; /* 기본 여백 제거 */
-    font-size: 18px; /* 글자 크기 조정 */
-    font-weight: 500; /* 글자 두께 조정 */
-    color: #333; /* 글자 색상 */
+	margin: 0; /* 기본 여백 제거 */
+	font-size: 18px; /* 글자 크기 조정 */
+	font-weight: 500; /* 글자 두께 조정 */
+	color: #333; /* 글자 색상 */
 }
 
+.reply-btn {
+	background-color: transparent; /* 기본 배경색 없음 */
+	border: none; /* 테두리 없음 */
+	font-family: 'Arial', sans-serif; /* 폰트 설정 (원하는 폰트로 변경 가능) */
+	font-size: 14px; /* 폰트 크기 */
+	color: #333; /* 글자 색상 */
+	cursor: pointer; /* 커서 변경 */
+	padding: 5px 10px; /* 패딩 조정 */
+	margin-left: 3px;
+	transition: background-color 0.3s ease; /* 부드러운 배경색 전환 */
+}
+
+.reply-btn:hover {
+	background-color: #f0f0f0; /* hover 시 배경색 */
+	color: #000; /* hover 시 글자 색상 */
+	border-radius: 4px; /* 둥근 모서리 */
+}
+/* 대댓글 입력란 스타일 */
+.reply-input {
+	width: 100%; /* 너비를 100%로 설정 */
+	padding: 10px; /* 여백 추가 */
+	border: 1px solid #ccc; /* 테두리 설정 */
+	border-radius: 5px; /* 모서리를 둥글게 */
+	margin-top: 5px; /* 상단 여백 추가 */
+	font-size: 14px; /* 폰트 크기 */
+	box-sizing: border-box; /* 패딩과 테두리 포함 */
+}
+
+/* 제출 버튼 스타일 */
+.reply-submit-btn {
+	background-color: #E60023; /* 버튼 배경색 */
+	color: white; /* 글자색 */
+	border: none; /* 테두리 없음 */
+	padding: 10px 15px; /* 여백 추가 */
+	border-radius: 5px; /* 모서리를 둥글게 */
+	cursor: pointer; /* 커서 포인터로 변경 */
+	font-size: 14px; /* 폰트 크기 */
+	margin-top: 5px; /* 상단 여백 추가 */
+	transition: background-color 0.3s; /* 배경색 전환 효과 */
+}
+
+/* 제출 버튼 호버 스타일 */
+.reply-submit-btn:hover {
+	background-color: #b3001e; /* 호버 시 배경색 변경 */
+}
+
+/* 취소 버튼 스타일 */
+.cancel-reply-btn {
+	background-color: #ccc; /* 버튼 배경색 */
+	color: #333; /* 글자색 */
+	border: none; /* 테두리 없음 */
+	padding: 10px 15px; /* 여백 추가 */
+	border-radius: 5px; /* 모서리를 둥글게 */
+	cursor: pointer; /* 커서 포인터로 변경 */
+	font-size: 14px; /* 폰트 크기 */
+	margin-left: 10px; /* 왼쪽 여백 추가 */
+	margin-top: 5px; /* 상단 여백 추가 */
+	transition: background-color 0.3s; /* 배경색 전환 효과 */
+}
+
+/* 취소 버튼 호버 스타일 */
+.cancel-reply-btn:hover {
+	background-color: #b3b3b3; /* 호버 시 배경색 변경 */
+}

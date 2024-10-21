@@ -7,7 +7,7 @@ CREATE TABLE boardscrap (
     imageSubject VARCHAR(100) NOT NULL,        -- 제목
     logtime TIMESTAMP DEFAULT CURRENT_TIMESTAMP,  -- 스크랩한 시간
 	CONSTRAINT fk_boardscrap_member FOREIGN KEY (seq_member) 
-    REFERENCES member(seq_member)
+    REFERENCES member(seq_member)   
     ON DELETE CASCADE,
     CONSTRAINT fk_boardscrap_board FOREIGN KEY (seq_board)
     REFERENCES board(seq_board)

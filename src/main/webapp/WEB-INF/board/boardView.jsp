@@ -18,6 +18,7 @@
 		data-name="${sessionScope.memDTO.name}"
 		data-board-name="${boardDTO.imageSubject}"
 		data-image="${boardDTO.imageFileName }"
+		data-board-author="${boardDTO.seq_member }"
 		data-javaScriptKey="${javaScriptKey}"></div>
 	<div id="headerEnd" style="width: 100%; height: 91px;"></div>
 	<div class="back" onclick="closePage()">
@@ -54,7 +55,6 @@
 						</svg>
 
 					<p id="likeCount" style="margin: 0;"></p>
-					<!-- 나중에 수정해야 함 -->
 					<span id="hitRate"> <svg xmlns="http://www.w3.org/2000/svg"
 							id="hitIcon" viewBox="0 0 448 512">
 						<path
@@ -81,9 +81,7 @@
 				</div>
 				<!-- 작성자 -->
 				<div id="userName">
-					<!-- 나중에 수정해야 함 -->
-					<img src="${pageContext.request.contextPath}/img/imoji.png"
-						alt="유저 프로필 이미지">
+					<img src="" alt="작성자 프로필 이미지">
 					<h4>작성자 : ${boardDTO.name }</h4>
 				</div>
 				<!-- 제목  -->
@@ -105,25 +103,23 @@
 
 					<!-- 댓글 내용 -->
 					<div id="comment-list">
-						<c:forEach var="comment" items="${commentList}">
-							<input type="text" value="${memDTO.name }" />
-							<div class="comment-content">
-
-								<strong>${comment.name}: </strong>
-								<div class="comment_Content">${comment.commentContent}</span>
-									(${comment.logtime})
-									<!-- 로그인한 사용자와 댓글 작성자가 같을 때만 버튼을 표시 -->
-									<button class="options-btn" data-seq="${comment.seq_comment}">⋯</button>
-								</div>
-						</c:forEach>
+						
 					</div>
 
 
 					<!-- 댓글 작성 -->
 					<div id="comment-input" style="display: flex; align-items: center;">
 						<div id="memberProfileImage">
-							<img src="${pageContext.request.contextPath}/img/imoji.png"
-								alt="유저 프로필 이미지">
+							<c:choose>
+								<c:when test="${memDTO.userProfile != null}">
+									<img
+										src="https://kr.object.ncloudstorage.com/bitcamp-9th-pinter/storage/${memDTO.userProfile}"
+										alt="유저 프로필 이미지">
+								</c:when>
+								<c:otherwise>
+									<img src="${memDTO.kakaoProfile}" alt="유저 프로필 이미지">
+								</c:otherwise>
+							</c:choose>
 						</div>
 						<input type="text" id="commentContent" name="commentContent"
 							style="padding-left: 10px;">
@@ -150,18 +146,7 @@
 	<div id="searchMore">
 		<h4 style="text-align: center; margin-top: 30px; color: black">더
 			찾아보기</h4>
-		<section class="gallery" style="padding: 2em 0;">
-			<c:forEach var="boardDTO" items="${list}">
-				<div class="grid-item">
-					<a
-						href="${pageContext.request.contextPath}/board/boardView?seq_board=${boardDTO.seq_board}">
-						<img
-						src="https://kr.object.ncloudstorage.com/bitcamp-9th-pinter/storage/${boardDTO.imageFileName}"
-						alt="${boardDTO.imageSubject}" /> <span class="hit">${boardDTO.hit}</span>
-					</a>
-				</div>
-			</c:forEach>
-		</section>
+		<section class="gallery" style="padding: 2em 0;"></section>
 	</div>
 	<script
 		src="https://cdn.jsdelivr.net/npm/@joeattardi/emoji-button@3.0.3/dist/index.min.js"></script>

@@ -48,15 +48,19 @@ public class MemberController {
 
 	@RequestMapping(value = "/join")
 	@ResponseBody
-	public void join(@ModelAttribute MemberDTO memberDTO, @RequestParam("email1") String email1,
-			@RequestParam("email2") String email2, @RequestParam("tel1") String tel1, @RequestParam("tel2") String tel2,
-			@RequestParam("tel3") String tel3, @RequestParam("addr1") String addr1,
-			@RequestParam("addr2") String addr2) {
+	public void join(@ModelAttribute MemberDTO memberDTO, 
+			@RequestParam("joinid") String id, @RequestParam("joinpassword") String passwd, @RequestParam("joinname") String name,
+			@RequestParam("email1") String email1, @RequestParam("email2") String email2, 
+			@RequestParam("tel1") String tel1, @RequestParam("tel2") String tel2, @RequestParam("tel3") String tel3, 
+			@RequestParam("addr1") String addr1, @RequestParam("addr2") String addr2) {
 		System.out.println(memberDTO.getKakaoCheck());
 		System.out.println(memberDTO.getKakaoProfile());
 		String email = email1 + "@" + email2;
 		String phoneNumber = tel1 + "-" + tel2 + "-" + tel3;
 		String address = addr1 + "," + addr2;
+		memberDTO.setId(id);
+		memberDTO.setPassword(passwd);
+		memberDTO.setName(name);
 		memberDTO.setEmail(email);
 		memberDTO.setPhoneNumber(phoneNumber);
 		memberDTO.setAddress(address);
@@ -129,7 +133,7 @@ public class MemberController {
 			session.setAttribute("memDTO", memberDTO);
 			model.addAttribute("userInfo", userInfo);
 			model.addAttribute("access_token", access_token);
-			return "redirect:/";
+			return "redirect:/board/searchPage";
 		}
 
 	}

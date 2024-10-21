@@ -16,19 +16,19 @@
 					<input type="hidden" id="kakaoProfile" name="kakaoProfile" value="${userInfo.profile_image}">
 					<input type="hidden" id="kakaoCheck" name="kakaoCheck" value="${kakaoCheck}">
 					<div class="form-group">
-						<label for="name">이름</label> <input type="text"
-							class="form-control" id="name" name="name" placeholder="이름 입력">
+						<label for="joinname">이름</label> <input type="text"
+							class="form-control" id="joinname" name="joinname" placeholder="이름 입력">
 						<div id="nameDiv" style="color: red;"></div>
 					</div>
 					<div class="form-group">
-						<label for="id">아이디</label> <input type="text"
-							class="form-control" id="id" name="id" placeholder="아이디 입력">
+						<label for="joinid">아이디</label> <input type="text"
+							class="form-control" id="joinid" name="joinid" placeholder="아이디 입력">
 						<input type="hidden" id="check" value="">
 						<div id="idDiv" style="color: red;"></div>
 					</div>
 					<div class="form-group">
-						<label for="password">비밀번호</label> <input type="password"
-							class="form-control" id="password" name="password"
+						<label for="joinpassword">비밀번호</label> <input type="password"
+							class="form-control" id="joinpassword" name="joinpassword"
 							placeholder="비밀번호 입력">
 						<div id="pwdDiv" style="color: red;"></div>
 					</div>

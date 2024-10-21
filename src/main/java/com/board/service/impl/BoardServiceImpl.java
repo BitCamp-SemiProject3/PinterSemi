@@ -13,12 +13,16 @@ import org.springframework.web.multipart.MultipartFile;
 import com.board.bean.BoardDTO;
 import com.board.dao.BoardDAO;
 import com.board.service.BoardService;
+import com.member.bean.MemberDTO;
+import com.member.dao.MemberDAO;
 import com.member.ncp.service.ObjectStorageService;
 
 @Service
 public class BoardServiceImpl implements BoardService {
 	@Autowired
 	private BoardDAO boardDAO;
+	@Autowired
+	private MemberDAO memberDAO;
 	@Autowired
 	private ObjectStorageService objectStorageService;
 	private final int page_size = 20;
@@ -105,4 +109,14 @@ public class BoardServiceImpl implements BoardService {
 		return boardDAO.searchBoardPagingList(map);
 	}
 
+	@Override
+	public String getBoardMemberProfile(String seq_member) {
+		MemberDTO memberDTO = memberDAO.getMemberBySeq(seq_member);
+		if(memberDTO.getUserProfile()!=null) {
+			return "https://kr.object.ncloudstorage.com/bitcamp-9th-pinter/storage/"+memberDTO.getUserProfile();
+		}
+		else {
+			return memberDTO.getKakaoProfile();
+		}
+	}
 }

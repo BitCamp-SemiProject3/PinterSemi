@@ -85,13 +85,33 @@ body {
     font-weight: bold;
     font-size: 18px;
 }
-
-.save{
+#saveBtn {
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+}
+.save, .saved{
 	margin-top: 50px;
 	font-weight: bold;
 	margin-bottom: 20px;
+	background-color: #fff;
+	width: 60px;
+	height: 40px;
+	cursor: pointer;
+	text-align: center;
+	line-height: 30px;
+	padding: 5px;
+	border-radius: 10%;
 }
-
+.save:hover, .saved:hover {
+	background-color: #dcdcdc;
+}
+.save {
+	margin-right: 5px;
+}
+.saved {
+	margin-left: 5px;
+}
 hr {
     border: 0;
     height: 4px;
@@ -139,9 +159,11 @@ hr {
     font-size: 18px;
     color: #333;
 }
-
+#cre-scrBtn {
+	margin-top: 20px;
+}
 /* 핀 만들기 버튼 스타일 */
-.create-pin-button {
+.create-pin-button, .scrap-pin-button {
     display: block;
     margin: 0 auto;
     padding: 10px 20px;
@@ -155,6 +177,6 @@ hr {
 }
 
 /* 핀 만들기 버튼 호버 시 */
-.create-pin-button:hover {
+.create-pin-button:hover, .scrap-pin-button:hover {
     background-color: blue;
 }

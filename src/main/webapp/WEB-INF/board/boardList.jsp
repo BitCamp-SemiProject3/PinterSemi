@@ -18,8 +18,8 @@
 			<c:forEach var="boardDTO" items="${list }">
 				<tr>
 					<td align="center">${boardDTO.seq_board }</td>
-					<td align="center"><a href="/Inbeomstagram/board/boardView.do?seq_board=${boardDTO.seq_board }" ><img
-						src="http://localhost:8080/Inbeomstagram/storage/${boardDTO.image }"
+					<td align="center"><a href="/Inbeomstagram/board/boardView.do?seq_board=${boardDTO.seq_board }" >
+					<img src="https://kr.object.ncloudstorage.com/bitcamp-9th-pinter/storage/${ boardDTO.image }"
 						width="300" height="300"/></a>
 						<h2>${boardDTO.imageSubject }</h2>
 						<p>${boardDTO.imageContent }</p>

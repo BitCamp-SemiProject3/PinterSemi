@@ -61,7 +61,9 @@ header {
 .auth-buttons {
 	display: flex; /* Flexbox 사용 */
 }
-
+.auth-buttons img{
+	display:none;
+}
 .auth-buttons a {
 	margin-left: 10px; /* 버튼 간 간격 */
 	text-decoration: none; /* 밑줄 제거 */
@@ -94,7 +96,20 @@ header {
 	color: black; /* 로그아웃 버튼 글자색 */
 	margin-right: 10px;
 }
-
+@media screen and (max-width: 768px){
+	.auth-buttons .info,
+	.auth-buttons button{
+		display: none;
+	}
+	.auth-buttons img {
+		display: inline-block;
+		width: 30px; /* 이미지 크기 */
+        height: 30px; /* 이미지 크기 */
+        object-fit : contain;
+        margin-left: 12px;
+        cursor: pointer;
+    }
+}
 .search-area {
 	flex: 1; /* 남은 공간을 채우도록 설정 */
 	display: flex;

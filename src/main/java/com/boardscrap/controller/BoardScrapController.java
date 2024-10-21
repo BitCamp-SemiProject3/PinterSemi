@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.board.bean.BoardDTO;
+import com.board.service.BoardService;
 import com.boardscrap.service.BoardScrapService;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -19,6 +20,8 @@ import org.springframework.web.servlet.ModelAndView;
 public class BoardScrapController {
 	@Autowired
 	private BoardScrapService boardScrapService;
+	@Autowired
+	private BoardService boardService;
 	
 	//이미지 스크랩
 	@RequestMapping("/scrap")
@@ -35,6 +38,15 @@ public class BoardScrapController {
 		mav.addObject("list", list);
 		mav.setViewName("/member/mypageSup");
 		System.out.println(list);
+		return mav;
+	}
+
+	@RequestMapping("/getMyBoard")
+	@ResponseBody
+	public ModelAndView getMyBoard(@RequestParam("seq_member") String seq_member, ModelAndView mav) {
+		List<BoardDTO> list = boardService.getMyBoardList(seq_member);
+		mav.addObject("list", list);
+		mav.setViewName("/member/mypageSup");
 		return mav;
 	}
 }

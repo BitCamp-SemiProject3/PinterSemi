@@ -2,9 +2,9 @@
 var idRegex = /^(?:(?:[a-zA-Z\d]{1,50})|(?:[a-zA-Z\d._%+-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}))$/;
 var pwdRegex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*])[a-zA-Z\d!@#$%^&*]{8,100}$/; // 비밀번호는 8자 이상
 // 아이디 중복 체크
-$('#id').focusout(function() {
+$('#joinid').focusout(function() {
     $('#idDiv').empty();
-    var idValue = $('#id').val();
+    var idValue = $('#joinid').val();
     
     if (idValue == '') {
         $('#idDiv').html('먼저 아이디 입력');
@@ -149,9 +149,9 @@ $('#email3').on('click', function() {
 function checkJoin() {
     $("#nameDiv, #idDiv, #pwdDiv, #emailDiv, #telDiv, #addrDiv").empty(); // 모든 오류 메시지 초기화
 	
-    var name = $("#name").val();
-    var idValue = $("#id").val();
-    var pwdValue = $("#password").val();
+    var name = $("#joinname").val();
+    var idValue = $("#joinid").val();
+    var pwdValue = $("#joinpassword").val();
     var repwdValue = $("#repwd").val();
     var email1 = $("#email1").val();
     var email2 = $("#email2").val();
@@ -163,7 +163,7 @@ function checkJoin() {
     // 이름 확인
     if (!name) {
         $("#nameDiv").text("이름을 입력하세요.").focus();
-        $("#name").focus(); 
+        $("#joinname").focus(); 
         return;
     }
 
@@ -181,11 +181,11 @@ function checkJoin() {
     // 비밀번호 확인
     if (!pwdValue) {
         $("#pwdDiv").text("비밀번호를 입력하세요.");
-        $("#password").focus(); 
+        $("#joinpassword").focus(); 
         return;
     } else if (!pwdRegex.test(pwdValue)) {
         $("#pwdDiv").text("비밀번호는 영문, 숫자, 특수문자 포함 8자 이상, 100자 이내로 입력하세요.");
-        $("#password").focus(); 
+        $("#joinpassword").focus(); 
         return;
     }
 
@@ -198,7 +198,7 @@ function checkJoin() {
     // 아이디 중복 체크 여부 확인
     if (idValue !== $("#check").val()) {
         $("#idDiv").text("중복체크를 하세요.");
-        $("#id").focus(); 
+        $("#joinid").focus(); 
         return;
     }
 

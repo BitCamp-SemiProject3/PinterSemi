@@ -2,38 +2,65 @@
 <!DOCTYPE mapper
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
- <mapper namespace="com.comment.dao.CommentDAO">
- 	<!-- 댓글 작성 -->
+<mapper namespace="com.comment.dao.CommentDAO">
+	<!-- 댓글 작성 -->
 	<insert id="commentWrite" parameterType="commentDTO">
-		INSERT INTO CommentTable (seq_board, name, commentContent)
-    	VALUES (#{seq_board}, #{name}, #{commentContent})
+		INSERT INTO CommentTable
+		(seq_board, name, commentContent, parentCommentSeq)
+		VALUES
+		(#{seq_board}, #{name}, #{commentContent}, #{parentCommentSeq})
 	</insert>
- 	<!-- 댓글 목록 -->
- 	<select id="commentList" parameterType="long" resultType="commentDTO">
-        SELECT * FROM CommentTable WHERE seq_board = #{seq_board} ORDER BY logtime DESC
-    </select>
-    <!-- 게시글 조회수 -->
-    <update id="hitUpdate" parameterType="long">
-		update board set hit=hit+1 where seq_board = #{seq_board}
+	<!-- 댓글 목록 -->
+	<select id="commentList" parameterType="long"
+		resultType="CommentDTO">
+		WITH RECURSIVE CommentTree AS (
+		SELECT seq_comment, seq_board, name, commentContent, logtime,
+		parentCommentSeq
+		FROM CommentTable
+		WHERE seq_board = #{seq_board} AND parentCommentSeq IS NULL
+
+		UNION ALL
+
+		SELECT c.seq_comment, c.seq_board, c.name, c.commentContent, c.logtime,
+		c.parentCommentSeq
+		FROM CommentTable c
+		INNER JOIN CommentTree ct ON c.parentCommentSeq = ct.seq_comment
+		)
+		SELECT * FROM CommentTree
+		ORDER BY
+		COALESCE(parentCommentSeq, seq_comment), -- 부모 댓글과 대댓글을 그룹화
+		seq_comment ASC, -- 부모 댓글 순서대로 정렬
+		logtime ASC -- 대댓글은 시간순 정렬
+	</select>
+
+
+
+	<!-- 게시글 조회수 -->
+	<update id="hitUpdate" parameterType="long">
+		update board set hit=hit+1
+		where seq_board = #{seq_board}
 	</update>
-	
+
 	<!-- 댓글목록 DTO -->
-	<select id="commentListDTO" parameterType="long" resultType="commentDTO">
-        SELECT * FROM CommentTable
-    </select>
-    
-    <!-- 댓글 삭제 -->
-    <delete id="commentDelete" parameterType="long">
- 		DELETE FROM CommentTable WHERE seq_comment = #{seq_comment}
- 	</delete>
-    
-     <!-- 댓글 수정 -->
-    <update id="commentUpdate" parameterType="Map">
-    
-        UPDATE CommentTable 
-   		SET commentContent = #{commentContent} 
-    	WHERE seq_comment = #{seq_comment}
-    	
-    </update>
-    
- </mapper>
+	<select id="commentListDTO" parameterType="long"
+		resultType="commentDTO">
+		SELECT * FROM CommentTable
+	</select>
+
+	<!-- 댓글 삭제 -->
+	<delete id="commentDelete" parameterType="long">
+		DELETE FROM
+		CommentTable WHERE seq_comment = #{seq_comment}
+	</delete>
+
+	<!-- 댓글 수정 -->
+	<update id="commentUpdate" parameterType="Map">
+
+		UPDATE CommentTable
+		SET
+		commentContent = #{commentContent}
+		WHERE seq_comment = #{seq_comment}
+
+	</update>
+
+</mapper>

@@ -94,7 +94,7 @@ $(document).ready(function() {
             data: formData,
             success: function() {
                 alert('회원정보가 성공적으로 수정되었습니다.');
-                location.href = '/Inbeomstagram/';
+                location.href = '/Inbeomstagram/board/searchPage';
             },
             error: function(e) {
                 console.log(e);

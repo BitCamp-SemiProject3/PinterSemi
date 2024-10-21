@@ -2,6 +2,8 @@ $(document).ready(function() {
 	let currentPage = 1;
 	let loading = false;
 	let keyword = new URLSearchParams(window.location.search).get('keyword'); // URL에서 키워드 가져오기
+	
+	loadMoreData(currentPage, keyword);
 
 	// 스크롤 이벤트 감지
 	$(window).scroll(function() {

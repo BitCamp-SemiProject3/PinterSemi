@@ -12,9 +12,6 @@
         <c:when test="${memDTO == null}">
             <jsp:include page="mainPage/mainPage.jsp" />
         </c:when>
-        <c:otherwise>
-            <c:redirect url="/board/searchPage" />
-        </c:otherwise>
     </c:choose>
     
 </body>

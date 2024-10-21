@@ -28,5 +28,4 @@ public interface BoardDAO {
 	public List<BoardDTO> getMyBoardList(long seq_member);
 
 	public List<BoardDTO> searchBoardPagingList(Map<String, Object> map);
-
 }
