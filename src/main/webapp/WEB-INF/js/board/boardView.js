@@ -355,6 +355,7 @@ function onLoadpage() {
     const seqBoard = $('#data').data('seq-board');
     const seqBoardAuthor = $('#data').data('board-author'); 
     const memberName = $('#data').data('name');
+    const seqMember = $('#seq_member').val();
     
     // 작성자 프로필 가져오기
     $.ajax({
